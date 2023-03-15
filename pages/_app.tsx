@@ -1,6 +1,17 @@
+import type { AppProps } from 'next/app';
+import { ClerkProvider, SignedIn, SignedOut, SignIn } from '@clerk/nextjs';
+import { MainLayout } from '../components';
+import { IsAdmin } from '../components/IsAdmin/IsAdmin';
 import '../styles/globals.css'
-import type { AppProps } from 'next/app'
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+    return (
+        <ClerkProvider {...pageProps}>
+            <IsAdmin>
+                <MainLayout>
+                    <Component {...pageProps} />
+                </MainLayout>
+            </IsAdmin>
+        </ClerkProvider>
+    );
 }

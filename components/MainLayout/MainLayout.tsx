@@ -1,6 +1,8 @@
 import type { PropsWithChildren } from 'react';
-import { Layout, Menu } from 'antd';
+import { Dropdown, Layout, Col, Row } from 'antd';
+import { Avatar } from '../Avatar';
 import { MainNavigation } from '../MainNavigation';
+import { UserMenu } from '../UserMenu';
 import styles from './MainLayout.module.css';
 
 const { Header, Sider, Content } = Layout;
@@ -14,7 +16,15 @@ export const MainLayout = (props: PropsWithChildren<LayoutProps>) => {
 
     return (
         <Layout className={styles.main}>
-            <Header>Header</Header>
+            <Header>
+                <Row>
+                    <Col span={8}></Col>
+                    <Col span={8}></Col>
+                    <Col span={8}>
+                        <UserMenu />
+                    </Col>
+                </Row>
+            </Header>
             <Layout>
                 <Sider>
                     <MainNavigation />

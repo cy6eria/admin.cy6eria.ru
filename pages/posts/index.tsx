@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next';
 import { getFromDatabase } from '@utils';
 import { PostListItem } from '@model';
-import { MainLayout, PostsTable } from '@components';
+import { PostsTable } from '@components';
 
 const ITEMS_PER_PAGE = 5;
 
@@ -65,8 +65,6 @@ interface PostsProps {
 
 export default function Posts ({ data, page, totalCount, itemsPerPage }: PostsProps) {
     return (
-        <MainLayout>
-            <PostsTable data={data} page={page} totalCount={totalCount} itemsPerPage={itemsPerPage} />  
-        </MainLayout>
+      <PostsTable data={data} page={page} totalCount={totalCount} itemsPerPage={itemsPerPage} />  
     );
 }
